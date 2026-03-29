@@ -234,23 +234,37 @@ body::before {
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: 0;
   z-index: var(--z-dots);
 }
 
 .section-dots__dot {
-  width: 8px;
-  height: 8px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: var(--color-text-dim);
+  background: transparent;
   border: none;
   cursor: pointer;
   transition: background var(--duration-normal) var(--ease-smooth),
               transform var(--duration-normal) var(--ease-smooth);
   padding: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.section-dots__dot--active {
+.section-dots__dot::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-text-dim);
+  transition: background var(--duration-normal) var(--ease-smooth),
+              transform var(--duration-normal) var(--ease-smooth);
+}
+
+.section-dots__dot--active::after {
   background: var(--color-accent);
   transform: scale(1.4);
 }

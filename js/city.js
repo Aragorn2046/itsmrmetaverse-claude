@@ -55,8 +55,6 @@ const buildingFragmentShader = /* glsl */`
   varying vec2 vUv;
   varying vec3 vViewDir;
 
-  #include <fog_pars_fragment>
-
   void main() {
     // Procedural grid lines
     float floorLine = 1.0 - step(0.05, fract(vWorldPosition.y / 3.0));
@@ -87,8 +85,6 @@ const buildingFragmentShader = /* glsl */`
     color += uEdgeColor * topGlow;
 
     gl_FragColor = vec4(color, 1.0);
-
-    #include <fog_fragment>
   }
 `;
 
@@ -238,7 +234,7 @@ function createBuildings() {
     },
     vertexShader: buildingVertexShader,
     fragmentShader: buildingFragmentShader,
-    fog: true,
+    fog: false,
   });
 
   const dummy = new THREE.Object3D();
@@ -279,7 +275,7 @@ function createGround() {
   gridOverlayMaterial = new THREE.ShaderMaterial({
     transparent: true,
     depthWrite: false,
-    fog: true,
+    fog: false,
     uniforms: {
       uTime: { value: 0 },
       uColor: { value: new THREE.Color(ACCENT) },
