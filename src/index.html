@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aragorn Meulendijks — Futurist, Keynote Speaker, Future Historian</title>
+  <meta name="description" content="Helping leaders navigate the exponential future. Keynote speaker, futurist, and Future Historian. Book Aragorn for your next event.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Aragorn Meulendijks — Future Historian">
+  <meta property="og:description" content="Helping leaders navigate the exponential future. Keynote speaker and futurist.">
+  <meta property="og:image" content="assets/og-image.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://claude.itsmrmetaverse.com">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aragorn Meulendijks — Future Historian">
+  <meta name="twitter:description" content="Helping leaders navigate the exponential future.">
+  <meta name="twitter:image" content="assets/og-image.webp">
+
+  <!-- Preload critical fonts -->
+  <link rel="preload" href="fonts/Orbitron-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Rajdhani-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Font faces -->
+  <style>
+    @font-face {
+      font-family: 'Orbitron';
+      src: url('fonts/Orbitron-SemiBold.woff2') format('woff2');
+      font-weight: 600;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Orbitron';
+      src: url('fonts/Orbitron-Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Rajdhani';
+      src: url('fonts/Rajdhani-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Rajdhani';
+      src: url('fonts/Rajdhani-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Share Tech Mono';
+      src: url('fonts/ShareTechMono-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-display: swap;
+    }
+  </style>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <!-- Import map for Three.js + dependencies -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.183.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.183.0/examples/jsm/",
+      "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.3.21/dist/lenis.mjs",
+      "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.12.7/index.js",
+      "gsap/ScrollTrigger": "https://cdn.jsdelivr.net/npm/gsap@3.12.7/ScrollTrigger.js"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Skip link (accessibility) -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Three.js city canvas (persistent background) -->
+  <canvas id="city-canvas" class="city-canvas" aria-hidden="true"></canvas>
+
+  <!-- Navigation -->
+  <header class="nav nav--hidden" role="banner">
+    <a href="#intro" class="nav__name" aria-label="Scroll to top">ARAGORN</a>
+    <a href="#intro" class="nav__handle">&gt; ItsMrMetaverse</a>
+  </header>
+
+  <!-- Section dot indicators (desktop only) -->
+  <nav class="section-dots" aria-label="Page sections">
+    <button class="section-dots__dot section-dots__dot--active" aria-label="Introduction" aria-current="true" data-section="intro"></button>
+    <button class="section-dots__dot" aria-label="About" data-section="hero"></button>
+    <button class="section-dots__dot" aria-label="Trusted by" data-section="trusted-by"></button>
+    <button class="section-dots__dot" aria-label="Media" data-section="media"></button>
+    <button class="section-dots__dot" aria-label="Speaking topics" data-section="topics"></button>
+    <button class="section-dots__dot" aria-label="Testimonials" data-section="testimonials"></button>
+    <button class="section-dots__dot" aria-label="Work with me" data-section="work"></button>
+    <button class="section-dots__dot" aria-label="Stay connected" data-section="connect"></button>
+  </nav>
+
+  <!-- Section 1: City Intro -->
+  <section id="intro" class="flight-section flight-section--intro" aria-label="Introduction">
+    <div class="intro__content">
+      <h1 class="chrome-text intro__name">ARAGORN</h1>
+      <p class="handle-text intro__handle">&gt; ItsMrMetaverse</p>
+      <p class="intro__title">Future Historian</p>
+    </div>
+    <button class="tunnel-skip" aria-label="Skip to content">&darr; Scroll</button>
+  </section>
+
+  <main id="main-content">
+
+    <!-- Section 2: Hero -->
+    <section id="hero" class="flight-section section" aria-label="About Aragorn">
+      <div class="section__inner hero">
+        <img src="assets/hero.webp" alt="Aragorn Meulendijks on stage delivering a keynote"
+             class="hero__photo" width="380" height="380" fetchpriority="high">
+        <div class="hero__content reveal">
+          <h2 class="hero__statement">Helping leaders navigate the exponential future</h2>
+          <p class="hero__subtitle">Keynote speaker. Futurist. Future Historian.</p>
+          <a href="#work" class="btn btn--primary">Book a Keynote <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Authority Bar -->
+    <section id="trusted-by" class="flight-section section" aria-label="Trusted by">
+      <div class="section__inner reveal">
+        <p class="logo-bar__label">Trusted by</p>
+        <div class="logo-bar" role="list">
+          <img src="assets/logos/placeholder-1.webp" alt="Company One" class="logo-bar__item"
+               width="120" height="32" loading="lazy" role="listitem">
+          <img src="assets/logos/placeholder-2.webp" alt="Company Two" class="logo-bar__item"
+               width="120" height="32" loading="lazy" role="listitem">
+          <img src="assets/logos/placeholder-3.webp" alt="Company Three" class="logo-bar__item"
+               width="120" height="32" loading="lazy" role="listitem">
+          <img src="assets/logos/placeholder-4.webp" alt="Company Four" class="logo-bar__item"
+               width="120" height="32" loading="lazy" role="listitem">
+          <img src="assets/logos/placeholder-5.webp" alt="Company Five" class="logo-bar__item"
+               width="120" height="32" loading="lazy" role="listitem">
+          <img src="assets/logos/placeholder-6.webp" alt="Company Six" class="logo-bar__item"
+               width="120" height="32" loading="lazy" role="listitem">
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Media / Sizzle -->
+    <section id="media" class="flight-section section" aria-label="Media">
+      <div class="section__inner">
+        <p class="section__subtitle reveal">&gt; media</p>
+        <h2 class="section__title reveal">See It In Action</h2>
+
+        <div class="embed-container reveal">
+          <iframe src="about:blank" data-src="https://www.youtube.com/embed/VIDEO_ID"
+                  title="Keynote: Navigating the Exponential Future" loading="lazy" allowfullscreen></iframe>
+        </div>
+
+        <div class="embed-grid stagger">
+          <div class="embed-container reveal">
+            <iframe src="about:blank" data-src="https://open.spotify.com/embed/show/SHOW_ID_EN"
+                    title="Singularity Surfers Podcast (EN)" loading="lazy"></iframe>
+          </div>
+          <div class="embed-container reveal">
+            <iframe src="about:blank" data-src="https://open.spotify.com/embed/show/SHOW_ID_NL"
+                    title="Singularity Surfers Podcast (NL)" loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <p class="reveal" style="margin-top: var(--space-5); text-align: center;">
+          <a href="https://substack.com/@itsmrmetaverse" target="_blank" rel="noopener noreferrer">
+            Read on Substack &rarr;
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 5: Speaking Topics -->
+    <section id="topics" class="flight-section section" aria-label="Speaking topics">
+      <div class="section__inner">
+        <p class="section__subtitle reveal">&gt; topics</p>
+        <h2 class="section__title reveal">Speaking Topics</h2>
+        <div class="grid-4 stagger">
+
+          <article class="card bracketed reveal">
+            <span class="card__tag">ai &amp; future of work</span>
+            <h3 class="card__title">AI Won't Replace You — But Someone Using AI Will</h3>
+            <p class="card__text">How leaders can harness AI to amplify human potential rather than fear displacement.</p>
+            <ul class="takeaway-list">
+              <li>The AI adoption curve every leader must understand</li>
+              <li>Practical frameworks for human-AI collaboration</li>
+              <li>Why the next 5 years will reshape every industry</li>
+            </ul>
+            <a href="#work" class="btn btn--secondary btn--small">Book This Talk <span aria-hidden="true">&rarr;</span></a>
+          </article>
+
+          <article class="card bracketed reveal">
+            <span class="card__tag">extended reality</span>
+            <h3 class="card__title">Beyond the Screen: The Spatial Computing Revolution</h3>
+            <p class="card__text">Why XR is the next computing platform and what it means for enterprise.</p>
+            <ul class="takeaway-list">
+              <li>From smartphones to smart glasses: the transition timeline</li>
+              <li>Enterprise XR use cases delivering ROI today</li>
+              <li>The metaverse beyond the hype — what's actually being built</li>
+            </ul>
+            <a href="#work" class="btn btn--secondary btn--small">Book This Talk <span aria-hidden="true">&rarr;</span></a>
+          </article>
+
+          <article class="card bracketed reveal">
+            <span class="card__tag">exponential change</span>
+            <h3 class="card__title">The Exponential Decade: Leading Through Accelerating Change</h3>
+            <p class="card__text">A framework for navigating a world where change itself is accelerating.</p>
+            <ul class="takeaway-list">
+              <li>Why linear thinking is your biggest strategic risk</li>
+              <li>Exponential technologies converging in 2025-2030</li>
+              <li>Building an adaptive organization</li>
+            </ul>
+            <a href="#work" class="btn btn--secondary btn--small">Book This Talk <span aria-hidden="true">&rarr;</span></a>
+          </article>
+
+          <article class="card bracketed reveal">
+            <span class="card__tag">robotics &amp; automation</span>
+            <h3 class="card__title">When Robots Walk Among Us</h3>
+            <p class="card__text">The humanoid robotics revolution and its impact on work, society, and identity.</p>
+            <ul class="takeaway-list">
+              <li>From factory floors to city streets: the robotics timeline</li>
+              <li>Economic implications of physical AI</li>
+              <li>Preparing your organization for the robot workforce</li>
+            </ul>
+            <a href="#work" class="btn btn--secondary btn--small">Book This Talk <span aria-hidden="true">&rarr;</span></a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Testimonials -->
+    <section id="testimonials" class="flight-section section" aria-label="Testimonials">
+      <div class="section__inner">
+        <p class="section__subtitle reveal">&gt; proof</p>
+        <h2 class="section__title reveal">What Organizers Say</h2>
+        <div class="grid-3 stagger">
+
+          <blockquote class="testimonial reveal">
+            <p class="testimonial__quote">Aragorn captivated our audience of 500+ executives. His ability to make complex technology tangible and actionable is unmatched.</p>
+            <footer>
+              <cite class="testimonial__author">Event Director</cite>
+              <span class="testimonial__role">TechConf Europe 2025</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial reveal">
+            <p class="testimonial__quote">The highest-rated speaker at our leadership summit. Aragorn doesn't just present — he transforms how you think about the future.</p>
+            <footer>
+              <cite class="testimonial__author">Program Manager</cite>
+              <span class="testimonial__role">Innovation Summit 2025</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial reveal">
+            <p class="testimonial__quote">We've booked Aragorn three years running. Every time he brings fresh insights that resonate with our C-suite audience.</p>
+            <footer>
+              <cite class="testimonial__author">Conference Chair</cite>
+              <span class="testimonial__role">Digital Leaders Forum</span>
+            </footer>
+          </blockquote>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Work With Me -->
+    <section id="work" class="flight-section section" aria-label="Work with me">
+      <div class="section__inner">
+        <p class="section__subtitle reveal">&gt; book</p>
+        <h2 class="section__title reveal">Work With Me</h2>
+        <div class="grid-2">
+
+          <div class="card card--primary reveal">
+            <h3 class="card__title">Keynote Booking</h3>
+
+            <div class="booking-path">
+              <h4 class="booking-path__heading">Netherlands / Benelux</h4>
+              <p class="card__text">Book via Speakers Academy for events in the Netherlands and Benelux region.</p>
+              <a href="#" class="btn btn--secondary btn--small" target="_blank" rel="noopener noreferrer">
+                Book via Agency <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+
+            <hr class="divider">
+
+            <div class="booking-path">
+              <h4 class="booking-path__heading">International</h4>
+              <form class="form" action="https://formspree.io/f/FORM_ID" method="POST">
+                <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+                <div class="form__field">
+                  <label for="contact-name" class="form__label">Name</label>
+                  <input type="text" id="contact-name" name="name" class="form__input" required>
+                </div>
+                <div class="form__field">
+                  <label for="contact-email" class="form__label">Email</label>
+                  <input type="email" id="contact-email" name="email" class="form__input" required>
+                </div>
+                <div class="form__field">
+                  <label for="contact-event" class="form__label">Event &amp; Date</label>
+                  <input type="text" id="contact-event" name="event" class="form__input">
+                </div>
+                <div class="form__field">
+                  <label for="contact-message" class="form__label">Message</label>
+                  <textarea id="contact-message" name="message" class="form__textarea"></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary">Send Inquiry <span aria-hidden="true">&rarr;</span></button>
+                <p class="form__status" aria-live="polite" hidden></p>
+              </form>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <h3 class="card__title">Ventures</h3>
+            <p class="card__text">Beyond keynotes — building the future.</p>
+            <ul class="takeaway-list">
+              <li><a href="https://extendededition.com" target="_blank" rel="noopener noreferrer">Extended Edition</a> — Immersive media studio</li>
+              <li><a href="https://innovation-network.nl" target="_blank" rel="noopener noreferrer">Innovation Network</a> — Innovation dinners &amp; community</li>
+              <li>VCM — Venture Capital Metaverse</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Stay Connected -->
+    <section id="connect" class="flight-section section" aria-label="Stay connected">
+      <div class="section__inner section__inner--narrow" style="text-align: center;">
+        <p class="section__subtitle reveal">&gt; connect</p>
+        <h2 class="section__title reveal">Stay Connected</h2>
+        <nav class="social-links reveal" aria-label="Social media" style="justify-content: center;">
+          <a href="https://linkedin.com/in/aragornmeulendijks" class="social-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://x.com/itsmrmetaverse" class="social-link" target="_blank" rel="noopener noreferrer">X</a>
+          <a href="https://instagram.com/itsmrmetaverse" class="social-link" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://youtube.com/@itsmrmetaverse" class="social-link" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://substack.com/@itsmrmetaverse" class="social-link" target="_blank" rel="noopener noreferrer">Substack</a>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <p class="chrome-text" style="font-size: var(--text-lg); margin-bottom: var(--space-2);">ARAGORN</p>
+    <p class="handle-text" style="margin-bottom: var(--space-5);">&gt; ItsMrMetaverse &middot; Future Historian</p>
+    <a href="#work" class="btn btn--primary btn--small">Book a Keynote <span aria-hidden="true">&rarr;</span></a>
+    <p class="footer__copy" style="margin-top: var(--space-6);">&copy; 2026 Aragorn Meulendijks. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

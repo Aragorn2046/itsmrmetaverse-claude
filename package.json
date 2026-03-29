@@ -5,11 +5,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build:css": "cat src/css/tokens.css src/css/layout.css src/css/components.css > dist/styles.css",
-    "build:js": "npx esbuild src/js/main.js --bundle --format=esm --outfile=dist/main.js --external:three --external:three/* --external:lenis --external:gsap --external:gsap/* --minify --sourcemap",
+    "build:css": "mkdir -p dist/css && cp src/css/tokens.css dist/css/tokens.css && cp src/css/layout.css dist/css/layout.css && cp src/css/components.css dist/css/components.css",
+    "build:js": "mkdir -p dist/js && npx esbuild src/js/main.js --bundle --format=esm --outfile=dist/js/main.js --external:three --external:three/* --external:lenis --external:gsap --external:gsap/* --minify --sourcemap",
     "build:html": "cp src/index.html dist/index.html",
-    "build:assets": "cp -r src/fonts dist/fonts 2>/dev/null; cp -r src/assets dist/assets 2>/dev/null; true",
-    "build": "npm run build:css && npm run build:js && npm run build:html && npm run build:assets",
+    "build:assets": "mkdir -p dist/fonts dist/assets; cp -r src/fonts/* dist/fonts/ 2>/dev/null; cp -r src/assets/* dist/assets/ 2>/dev/null; true",
+    "build": "rm -rf dist && npm run build:css && npm run build:js && npm run build:html && npm run build:assets",
     "dev": "npx serve src --port 3000"
   },
   "devDependencies": {
