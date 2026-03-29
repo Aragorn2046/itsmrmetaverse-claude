@@ -3,8 +3,6 @@
  * itsmrmetaverse.com (Claude Code build)
  */
 
-import { init as initCity } from './city.js';
-
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ─── Scroll Reveal (IntersectionObserver) ─── */
@@ -199,7 +197,6 @@ function initTunnelSkip() {
 /* ─── Init ─── */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initCity();
   initScrollReveal();
   initNav();
   initSectionDots();
@@ -207,4 +204,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initLazyIframes();
   initContactForm();
   initTunnelSkip();
+
+  // Lazy-load Three.js cityscape to avoid blocking the main thread
+  if (!prefersReducedMotion && window.innerWidth >= 1024) {
+    import('./city.js').then(({ init }) => init());
+  }
 });

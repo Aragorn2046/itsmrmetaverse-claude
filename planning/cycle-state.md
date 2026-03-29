@@ -7,18 +7,18 @@
 - CSS Strategy: CSS custom properties (design tokens), single organized stylesheet
 - Deployment Target: GitHub Pages (*.itsmrmetaverse.com) — dual builds for comparison
 - Compliance Level: WCAG 2.2 AA
-- Repo: TBD (two repos needed)
-- Current Phase: 5-implement
+- Repo: Aragorn2046/itsmrmetaverse-claude
+- Current Phase: 7-accessibility
 - Status: in-progress
 
 ## Performance Budget
-- Lighthouse Performance: target >=90 / actual: —
-- Lighthouse Accessibility: target 100 / actual: —
-- Lighthouse Best Practices: target >=95 / actual: —
-- Lighthouse SEO: target >=95 / actual: —
-- LCP: target <=2.5s / actual: —
-- CLS: target <=0.1 / actual: —
-- INP: target <=200ms / actual: —
+- Lighthouse Performance: target >=90 / actual: 100 (desktop) 99 (mobile)
+- Lighthouse Accessibility: target 100 / actual: 100 (desktop) 100 (mobile)
+- Lighthouse Best Practices: target >=95 / actual: 100 (desktop) 100 (mobile)
+- Lighthouse SEO: target >=95 / actual: 100 (desktop) 100 (mobile)
+- LCP: target <=2.5s / actual: 0.4s (desktop) 1.7s (mobile)
+- CLS: target <=0.1 / actual: 0.002 (desktop) 0.005 (mobile)
+- INP: target <=200ms / actual: 0ms (desktop) 0ms (mobile)
 
 ## Phases
 - [x] 0-discovery
@@ -26,8 +26,8 @@
 - [x] 2-design-system
 - [x] 3-wireframe
 - [x] 4-components
-- [ ] 5-implement
-- [ ] 6-lighthouse
+- [x] 5-implement
+- [x] 6-lighthouse
 - [ ] 7-accessibility
 - [ ] 8-seo
 - [ ] 9-cross-browser-qa
@@ -60,3 +60,4 @@
 - 2026-03-29: Design system approved. DESIGN.md (15 sections), tokens.css updated with z-index scale + semantic colors. All CSS migrated to use z-index tokens.
 - 2026-03-29: Wireframes approved. 8 sections with ASCII layouts, responsive behavior matrix, state inventory, interaction notes.
 - 2026-03-29: Component inventory approved. Full HTML snippets for all 8 organisms, atomic design hierarchy, CSS 3-file architecture, JS 2-file split.
+- 2026-03-29: Phase 5 complete. All implementation files built: index.html (362 lines), tokens/layout/components CSS, main.js (scroll/nav/form), city.js (~500 lines Three.js cityscape with GLSL shaders, InstancedMesh, post-processing, scroll-linked camera). Build passes (10.8kb bundled JS). Pushed to GitHub.

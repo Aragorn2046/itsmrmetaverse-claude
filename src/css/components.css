@@ -395,7 +395,7 @@
 .footer__copy {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--color-text-dim);
+  color: #768390; /* WCAG AA: 5.05:1 on dark bg (--color-text-dim too low at 2.36:1) */
 }
 
 /* --- Scroll reveal (JS adds .revealed) --- */
