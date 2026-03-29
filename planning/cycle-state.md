@@ -8,7 +8,7 @@
 - Deployment Target: GitHub Pages (*.itsmrmetaverse.com) — dual builds for comparison
 - Compliance Level: WCAG 2.2 AA
 - Repo: Aragorn2046/itsmrmetaverse-claude
-- Current Phase: 9-cross-browser-qa
+- Current Phase: 11-deploy
 - Status: in-progress
 
 ## Performance Budget
@@ -30,8 +30,8 @@
 - [x] 6-lighthouse
 - [x] 7-accessibility
 - [x] 8-seo
-- [ ] 9-cross-browser-qa
-- [ ] 10-security
+- [x] 9-cross-browser-qa
+- [x] 10-security
 - [ ] 11-deploy
 
 ## Artifacts
