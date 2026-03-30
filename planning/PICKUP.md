@@ -1,34 +1,103 @@
 # Pickup Instructions — itsmrmetaverse-claude
 
-## Status: WEB-CYCLE COMPLETE, PENDING CONTENT
+## Status: SITE LIVE, PLACEHOLDER CONTENT NEEDS REPLACING
 
-The full 12-phase `/web-cycle` is done. The site is live at **https://claude.itsmrmetaverse.com/** with perfect Lighthouse scores. However, it's running on placeholder content — real assets are needed before it's production-ready.
+The full 12-phase `/web-cycle` is done. The site is live at **https://claude.itsmrmetaverse.com/** with perfect Lighthouse scores. It's running on placeholder content — real assets are needed before it's production-ready.
 
-## What Was Built
+## Quick Reference
 
-A premium futurist brand site for Aragorn Meulendijks (ItsMrMetaverse) with a persistent Tron: Legacy-inspired neon cityscape rendered in Three.js. Static HTML/CSS/JS — no framework, no build step.
-
-- **Repo:** `Aragorn2046/itsmrmetaverse-claude`
+- **Repo:** `Aragorn2046/itsmrmetaverse-claude` (PRIVATE)
 - **Local:** `~/projects/itsmrmetaverse-claude/`
 - **Live:** https://claude.itsmrmetaverse.com/ (GitHub Pages, gh-pages branch)
-- **Deploy method:** `git subtree push --prefix src origin gh-pages`
+- **Deploy:** `cd ~/projects/itsmrmetaverse-claude && git subtree push --prefix src origin gh-pages`
+- **Lighthouse:** 100/100/100/100 desktop, 99/100/100/100 mobile
 
-## Lighthouse Scores (2026-03-29)
+## Content Replacement Checklist
 
-| Category | Desktop | Mobile |
-|----------|---------|--------|
-| Performance | 100 | 99 |
-| Accessibility | 100 | 100 |
-| Best Practices | 100 | 100 |
-| SEO | 100 | 100 |
+Replace each placeholder, commit, and redeploy. Each item is independent — do them in any order.
 
-CWV: LCP 0.4s/1.7s, CLS 0.002/0.005, INP 0ms/0ms
+### 1. Hero Photo (`src/assets/hero.webp`)
+- **Current:** 44-byte placeholder file
+- **Needed:** Real photo of Aragorn on stage or in professional setting
+- **Format:** WebP, recommended ~800px wide, compressed
+- **Referenced at:** `index.html:122` (hero section), `index.html:372` (JSON-LD schema)
+- **How:** Replace the file at `src/assets/hero.webp`. Update alt text at line 122 if needed.
 
-## Architecture
+### 2. OG Image (`src/assets/og-image.webp`)
+- **Current:** 44-byte placeholder file
+- **Needed:** Social sharing image, 1200x630px
+- **Referenced at:** `index.html:12` (og:image), `index.html:20` (twitter:image)
+- **How:** Replace the file at `src/assets/og-image.webp`. Dimensions matter for social cards.
+
+### 3. Authority Logos (`src/assets/logos/placeholder-{1-6}.webp`)
+- **Current:** 6 placeholder files, 43 bytes each
+- **Needed:** Real client/partner logos (companies Aragorn has spoken for)
+- **Referenced at:** `index.html:137-148` (logo bar under hero)
+- **How:** Replace each `placeholder-N.webp` with a real logo. Update the `alt` text on each `<img>` tag (lines 137-148) to match the company name. Logos should be ~120px height, WebP format, transparent/white for dark background.
+
+### 4. YouTube Video ID
+- **Current:** `VIDEO_ID` placeholder string
+- **Referenced at:** `index.html:160` (`data-src` attribute on lazy iframe)
+- **How:** Replace `VIDEO_ID` with the real YouTube video ID (the part after `v=` in a YouTube URL). Example: `dQw4w9WgXcQ`.
+
+### 5. Spotify Podcast IDs
+- **Current:** `SHOW_ID_EN` and `SHOW_ID_NL` placeholder strings
+- **Referenced at:** `index.html:166` (English podcast), `index.html:170` (Dutch podcast)
+- **How:** Replace with Spotify show IDs. Find these in the Spotify share URL: `open.spotify.com/show/XXXXXXXXXX`. The ID is the alphanumeric string.
+- **EN podcast:** Singularity Surfers (English episodes) or relevant show
+- **NL podcast:** Singularity Surfers (Dutch episodes) or relevant show
+
+### 6. Formspree Contact Form
+- **Current:** `FORM_ID` placeholder string
+- **Referenced at:** `index.html:299` (form action URL)
+- **How:** Create a form at formspree.io, get the form ID, replace `FORM_ID`. The form already has name, email, company, and message fields wired up with honeypot spam protection.
+
+### 7. Testimonials (3 quotes)
+- **Current:** Generic placeholder testimonials with fake attributions
+- **Referenced at:** `index.html:249-270` (3 `<blockquote>` elements)
+- **Fields per testimonial:**
+  - `.testimonial__quote` — the actual quote text
+  - `.testimonial__author` — person's name (inside `<cite>`)
+  - `.testimonial__role` — their title + company (inside `<span>`)
+- **How:** Edit each blockquote with real testimonials from clients, event organizers, or partners.
+
+### 8. Speakers Academy Booking Link
+- **Current:** `href="#"` placeholder
+- **Referenced at:** `index.html:290` (the "Book via Agency" button)
+- **How:** Replace `href="#"` with the real Speakers Academy profile URL.
+
+### 9. (Optional) Favicon
+- **Current:** `src/favicon.ico` exists
+- **How:** Replace with a real branded favicon if desired.
+
+## Deployment Flow
+
+After making changes:
+
+```bash
+cd ~/projects/itsmrmetaverse-claude
+
+# 1. Stage and commit
+git add src/
+git commit -m "Replace [placeholder name] with real content"
+
+# 2. Deploy to GitHub Pages
+git subtree push --prefix src origin gh-pages
+
+# 3. Verify at https://claude.itsmrmetaverse.com/
+```
+
+If subtree push fails with "Updates were rejected" (history divergence):
+```bash
+git push origin --delete gh-pages
+git subtree push --prefix src origin gh-pages
+```
+
+## Architecture Notes
 
 ```
 src/
-  index.html          # Single page, 8 content sections, JSON-LD structured data
+  index.html          # Single page, 8 sections, JSON-LD structured data
   css/
     tokens.css        # Design tokens (colors, spacing, typography, z-index)
     layout.css        # Grid, responsive breakpoints, canvas, section dots
@@ -37,72 +106,26 @@ src/
     main.js           # Scroll reveal, nav, section dots, lazy iframes, contact form
     city.js           # Three.js cityscape (InstancedMesh, GLSL shaders, post-processing)
   fonts/              # Self-hosted: Orbitron, Rajdhani, Share Tech Mono
-  assets/
-    hero.webp         # PLACEHOLDER — needs real hero photo
-    og-image.webp     # PLACEHOLDER — needs real OG image (1200x630px)
-    logos/             # PLACEHOLDER authority logos
+  assets/             # All placeholder files listed above
   CNAME               # claude.itsmrmetaverse.com
-  robots.txt
-  sitemap.xml
-  favicon.ico
+  robots.txt, sitemap.xml, favicon.ico
 ```
 
-## Content Placeholders to Replace
-
-These are the items that need real content before the site is truly production-ready:
-
-| Placeholder | Location | What's Needed |
-|-------------|----------|---------------|
-| `hero.webp` | `src/assets/hero.webp` | Real hero photo of Aragorn |
-| `og-image.webp` | `src/assets/og-image.webp` | Open Graph image, 1200x630px |
-| `placeholder-{1-6}.webp` | `src/assets/logos/` | Authority/client logos for "Trusted By" bar |
-| `VIDEO_ID` | `src/index.html` (YouTube embed) | Real YouTube video ID |
-| `SHOW_ID_EN` | `src/index.html` (Spotify embed) | English podcast Spotify show ID |
-| `SHOW_ID_NL` | `src/index.html` (Spotify embed) | Dutch podcast Spotify show ID |
-| `FORM_ID` | `src/index.html` (Formspree action URL) | Formspree form ID for contact form |
-| Testimonial quotes | `src/index.html` (testimonials section) | Real testimonials from clients/partners |
-| Booking URL | `src/index.html` (CTA buttons) | Speakers Academy or calendar booking link |
-
-## How to Resume
-
-```bash
-# In a fresh Claude Code session:
-cd ~/projects/itsmrmetaverse-claude
-
-# To replace a placeholder and redeploy:
-# 1. Edit the file(s) in src/
-# 2. Commit
-# 3. git subtree push --prefix src origin gh-pages
-```
+**Key design decisions:**
+- No framework — static HTML/CSS/JS, no build step
+- Three.js cityscape hidden below 1024px (mobile gets CSS grid instead)
+- Import maps for CDN modules (Three.js r183, Lenis 1.3.21, GSAP 3.12.7)
+- Progressive enhancement — content works without JS
+- WCAG 2.2 AA compliant
 
 ## Dual Build Context
 
-This is **Build A** (Claude Code). There is a competing **Build B** (Gemini 3.1 Pro + Antigravity):
+This is **Build A** (Claude Code). Build B is in Antigravity (Gemini):
 - Build B repo: `Aragorn2046/itsmrmetaverse-gemini`
 - Build B local: `~/projects/itsmrmetaverse-gemini/`
-- Both builds share the same spec (discovery.md, DESIGN.md, wireframes.md, components.md)
-- Purpose: side-by-side comparison of AI-built websites from identical specs
-
-## Key Design Decisions
-
-- **No framework** — static HTML/CSS/JS for maximum performance and simplicity
-- **Three.js cityscape** hidden below 1024px — mobile gets CSS grid background instead (battery/GPU)
-- **Import maps** for CDN modules (Three.js r183, Lenis 1.3.21, GSAP 3.12.7) — all version-pinned
-- **Progressive enhancement** — content works without JS; CSS adds design; JS adds animations + Three.js
-- **WCAG 2.2 AA** — full compliance, `prefers-reduced-motion` respected, 44x44px touch targets
-- **Formspree** for contact form (no server-side code needed)
+- Both share the same spec (`planning/itsmrmetaverse-webcycle/`)
+- Purpose: side-by-side AI comparison
 
 ## Planning Artifacts
 
-All in `planning/`:
-- `cycle-state.md` — full phase history and decisions log
-- `itsmrmetaverse-webcycle/discovery.md` — scope and requirements
-- `itsmrmetaverse-webcycle/research-brief.md` — technology research (1,343 lines)
-- `itsmrmetaverse-webcycle/DESIGN.md` — full design system
-- `itsmrmetaverse-webcycle/wireframes.md` — layout structure
-- `itsmrmetaverse-webcycle/components.md` — component inventory
-- `lighthouse-report.md` — performance audit
-- `a11y-report.md` — accessibility audit
-- `seo-report.md` — SEO audit
-- `qa-report.md` — cross-browser QA
-- `security-report.md` — security audit
+All in `planning/`: cycle-state.md, discovery.md, research-brief.md, DESIGN.md, wireframes.md, components.md, lighthouse-report.md, a11y-report.md, seo-report.md, qa-report.md, security-report.md
